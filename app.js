@@ -22,6 +22,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get("/hello",function(req, res){
+  return res.status(200).json({"message":"Hello Azure"});
+});
+
 app.use('/', routes);
 app.use('/users', users);
 
@@ -30,10 +34,6 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-});
-
-app.get("/hello",function(req, res){
-  return res.status(200).json({"message":"Hello Azure"});
 });
 
 // error handlers

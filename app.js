@@ -32,6 +32,10 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.get("/hello",function(req, res){
+  return res.status(200).json({"message":"Hello Azure"});
+});
+
 // error handlers
 
 // development error handler
